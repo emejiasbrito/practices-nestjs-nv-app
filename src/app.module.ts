@@ -10,7 +10,9 @@ import { environments } from '../environments';
 @Module({
   imports: [
     ConfigModule.forRoot({
-      envFilePath: environments['dev'] || '.env',
+      envFilePath:
+        environments[process.env.NODE_ENV ? process.env.NODE_ENV : 'dev'] ||
+        '.env',
       load: [config],
       isGlobal: true,
       validationSchema: schemaConfig,
