@@ -1,7 +1,7 @@
 import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity()
-export class User {
+export class Users {
   @PrimaryGeneratedColumn()
   id: number;
 
@@ -11,6 +11,6 @@ export class User {
   @Column({ type: 'varchar', length: 255 })
   lastName: string;
 
-  @Column('timestamp without time zone')
+  @Column('timestamp without time zone', { nullable: true })
   dateBirth: Date;
 }

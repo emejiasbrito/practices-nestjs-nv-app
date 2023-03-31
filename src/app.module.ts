@@ -4,7 +4,7 @@ import { AppController } from 'app.controller';
 import { AppService } from 'app.service';
 import { DatabaseModule } from 'database.module';
 import { schemaConfig } from 'shared/rules/configSchema';
-import { UserModule } from 'users/user.module';
+import { UserModule } from 'users/users.module';
 import config from '../config';
 import { environments } from '../environments';
 
