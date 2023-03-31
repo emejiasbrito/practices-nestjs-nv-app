@@ -18,6 +18,7 @@ import config from '../config';
           username: user,
           password,
           database,
+          synchronize: true,
         };
       },
     }),
