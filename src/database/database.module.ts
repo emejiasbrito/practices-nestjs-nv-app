@@ -1,8 +1,7 @@
 import { Module, Global } from '@nestjs/common';
 import { ConfigType } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { Client } from 'pg';
-import config from '../config';
+import config from '../config/config';
 
 @Global()
 @Module({
@@ -18,7 +17,7 @@ import config from '../config';
           username: user,
           password,
           database,
-          synchronize: true,
+          synchronize: false,
           autoLoadEntities: true,
         };
       },

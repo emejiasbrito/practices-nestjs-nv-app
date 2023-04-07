@@ -1,7 +1,6 @@
 import { OmitType, PartialType } from '@nestjs/mapped-types';
 import {
   IsDate,
-  IsEmpty,
   IsNotEmpty,
   IsNumber,
   IsOptional,
@@ -21,6 +20,12 @@ export class UserDto {
   @IsDate()
   @IsOptional()
   readonly dateBirth: Date | null;
+  @IsString()
+  @IsOptional()
+  readonly phone: string;
+  @IsString()
+  @IsOptional()
+  readonly address: string;
 }
 
 export class CreateUserDto extends OmitType(UserDto, ['id']) {}
