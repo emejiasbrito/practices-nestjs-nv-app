@@ -6,14 +6,11 @@ import { DatabaseModule } from 'database/database.module';
 import { schemaConfig } from 'shared/rules/configSchema';
 import { UserModule } from 'users/users.module';
 import config from './config/config';
-import { environments } from '../environments';
 
 @Module({
   imports: [
     ConfigModule.forRoot({
-      envFilePath:
-        environments[process.env.NODE_ENV ? process.env.NODE_ENV : 'dev'] ||
-        '.env',
+      envFilePath: config().envFilePath,
       load: [config],
       isGlobal: true,
       validationSchema: schemaConfig,
