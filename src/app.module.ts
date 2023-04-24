@@ -5,6 +5,9 @@ import { AppService } from 'app.service';
 import { DatabaseModule } from 'database/database.module';
 import { schemaConfig } from 'shared/rules/configSchema';
 import { UserModule } from 'users/users.module';
+import { DepartmentsService } from './departments/services/departments.service';
+import { DepartmentsController } from './departments/controller/departments.controller';
+import { DepartmentsModule } from './departments/departments.module';
 import config from './config/config';
 
 @Module({
@@ -17,8 +20,9 @@ import config from './config/config';
     }),
     DatabaseModule,
     UserModule,
+    DepartmentsModule,
   ],
-  controllers: [AppController],
-  providers: [AppService],
+  controllers: [AppController, DepartmentsController],
+  providers: [AppService, DepartmentsService],
 })
 export class AppModule {}
