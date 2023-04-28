@@ -1,3 +1,4 @@
+import { DepartmentUser } from '../../departments-users/entities/departments-users.entity';
 import {
   Column,
   CreateDateColumn,
@@ -9,7 +10,7 @@ import {
 } from 'typeorm';
 
 @Entity()
-export class Departments {
+export class Department {
   @PrimaryGeneratedColumn()
   id: number;
 
@@ -28,9 +29,12 @@ export class Departments {
   })
   updateAt: Date;
 
-  @ManyToOne(() => Departments, (departments) => departments.children)
-  father: Departments;
+  @ManyToOne(() => Department, (departments) => departments.children)
+  father: Department;
 
-  @OneToMany(() => Departments, (departments) => departments.father)
-  children: Departments[];
+  @OneToMany(() => Department, (departments) => departments.father)
+  children: Department[];
+
+  @OneToMany(() => DepartmentUser, (user) => user.department)
+  user: DepartmentUser[];
 }

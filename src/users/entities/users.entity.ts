@@ -1,13 +1,15 @@
+import { DepartmentUser } from '../../departments-users/entities/departments-users.entity';
 import {
   Column,
   CreateDateColumn,
   Entity,
+  OneToMany,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
 
 @Entity()
-export class Users {
+export class User {
   @PrimaryGeneratedColumn()
   id: number;
 
@@ -37,4 +39,7 @@ export class Users {
     default: () => 'CURRENT_TIMESTAMP',
   })
   updateAt: Date;
+
+  @OneToMany(() => DepartmentUser, (department) => department.user)
+  department: DepartmentUser[];
 }

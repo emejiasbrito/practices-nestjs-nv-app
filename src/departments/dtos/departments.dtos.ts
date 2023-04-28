@@ -1,7 +1,7 @@
 import { OmitType, PartialType } from '@nestjs/mapped-types';
 import { IsNotEmpty, IsNumber, IsOptional, IsString } from 'class-validator';
 
-export class DepartmentsDto {
+export class DepartmentDto {
   @IsNumber()
   @IsNotEmpty()
   readonly id: number;
@@ -15,8 +15,8 @@ export class DepartmentsDto {
   fatherId?: number;
 
   @IsOptional()
-  children?: DepartmentsDto[];
+  children?: DepartmentDto[];
 }
 
-export class CreateDepartmentsDto extends OmitType(DepartmentsDto, ['id']) {}
-export class UpdateDepartmentsDto extends PartialType(CreateDepartmentsDto) {}
+export class CreateDepartmentDto extends OmitType(DepartmentDto, ['id']) {}
+export class UpdateDepartmentDto extends PartialType(CreateDepartmentDto) {}

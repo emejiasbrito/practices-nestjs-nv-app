@@ -6,8 +6,9 @@ import { DatabaseModule } from 'database/database.module';
 import { schemaConfig } from 'shared/rules/configSchema';
 import { UserModule } from 'users/users.module';
 import { DepartmentsService } from './departments/services/departments.service';
-import { DepartmentsController } from './departments/controller/departments.controller';
-import { DepartmentsModule } from './departments/departments.module';
+import { DepartmentController } from './departments/controllers/departments.controller';
+import { DepartmentModule } from './departments/departments.module';
+import { DepartmentUserModule } from './departments-users/departments-users.module';
 import config from './config/config';
 
 @Module({
@@ -20,9 +21,10 @@ import config from './config/config';
     }),
     DatabaseModule,
     UserModule,
-    DepartmentsModule,
+    DepartmentModule,
+    DepartmentUserModule,
   ],
-  controllers: [AppController, DepartmentsController],
-  providers: [AppService, DepartmentsService],
+  controllers: [AppController],
+  providers: [AppService],
 })
 export class AppModule {}
