@@ -9,6 +9,7 @@ import { DepartmentsService } from './departments/services/departments.service';
 import { DepartmentController } from './departments/controllers/departments.controller';
 import { DepartmentModule } from './departments/departments.module';
 import { DepartmentUserModule } from './departments-users/departments-users.module';
+import { AuthModule } from './auth/auth.module';
 import config from './config/config';
 
 @Module({
@@ -23,6 +24,7 @@ import config from './config/config';
     UserModule,
     DepartmentModule,
     DepartmentUserModule,
+    AuthModule,
   ],
   controllers: [AppController],
   providers: [AppService],

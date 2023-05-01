@@ -31,6 +31,7 @@ const config = {
   NODE_ENV,
   envFilePath,
   postgres,
+  apiKey: process.env.API_KEY,
 };
 
 export default registerAs('config', () => config);

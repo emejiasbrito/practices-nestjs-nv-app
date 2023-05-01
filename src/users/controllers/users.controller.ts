@@ -8,10 +8,14 @@ import {
   Patch,
   Post,
   Put,
+  UseGuards,
 } from '@nestjs/common';
+import { ApiKeyGuard } from 'auth/guards/api-key/api-key.guard';
+import { Public } from 'auth/guards/api-key/decorators/public.decorators';
 import { CreateUserDto, UpdateUserDto } from 'users/dtos/users.dtos';
 import { UsersService } from 'users/services/users.services';
 
+@UseGuards(ApiKeyGuard)
 @Controller('users')
 export class UsersController {
   constructor(private readonly usersService: UsersService) {}
@@ -26,6 +30,7 @@ export class UsersController {
     return await this.usersService.findOne(userId);
   }
 
+  @Public()
   @Post()
   async createUser(@Body() payload: CreateUserDto) {
     return await this.usersService.create(payload);
