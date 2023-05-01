@@ -8,7 +8,7 @@ import {
   UpdateDateColumn,
 } from 'typeorm';
 
-@Entity()
+@Entity({ name: 'users' })
 export class User {
   @PrimaryGeneratedColumn()
   id: number;
@@ -16,10 +16,10 @@ export class User {
   @Column({ type: 'varchar', length: 255 })
   name: string;
 
-  @Column({ type: 'varchar', length: 255 })
+  @Column({ name: 'last_name', type: 'varchar', length: 255 })
   lastName: string;
 
-  @Column('timestamp without time zone', { nullable: true })
+  @Column('timestamp without time zone', { name: 'date_birth', nullable: true })
   dateBirth: Date;
 
   @Column({ type: 'varchar', length: 12, nullable: true })
@@ -29,12 +29,14 @@ export class User {
   address: string;
 
   @CreateDateColumn({
+    name: 'create_at',
     type: 'timestamptz',
     default: () => 'CURRENT_TIMESTAMP',
   })
   createAt: Date;
 
   @UpdateDateColumn({
+    name: 'update_at',
     type: 'timestamptz',
     default: () => 'CURRENT_TIMESTAMP',
   })
