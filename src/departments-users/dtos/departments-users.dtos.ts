@@ -16,6 +16,4 @@ export class DepartmentUserDto {
 export class CreateDepartmentUserDto extends OmitType(DepartmentUserDto, [
   'id',
 ]) {}
-export class UpdateDepartmentUserDto extends PartialType(
-  CreateDepartmentUserDto,
-) {}
+export class UpdateDepartmentUserDto extends PartialType(DepartmentUserDto) {}

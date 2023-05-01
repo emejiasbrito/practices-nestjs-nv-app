@@ -8,12 +8,14 @@ import {
 } from 'typeorm';
 import { User } from '../../users/entities/users.entity';
 import { Department } from '../../departments/entities/departments.entity';
+import { Exclude } from 'class-transformer';
 
 @Entity({ name: 'departments_users' })
 export class DepartmentUser {
   @PrimaryGeneratedColumn()
   id: number;
 
+  @Exclude()
   @CreateDateColumn({
     name: 'create_at',
     type: 'timestamptz',
@@ -21,6 +23,7 @@ export class DepartmentUser {
   })
   createAt: Date;
 
+  @Exclude()
   @UpdateDateColumn({
     name: 'update_at',
     type: 'timestamptz',

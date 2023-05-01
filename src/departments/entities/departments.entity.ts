@@ -1,3 +1,4 @@
+import { Exclude } from 'class-transformer';
 import { DepartmentUser } from '../../departments-users/entities/departments-users.entity';
 import {
   Column,
@@ -18,6 +19,7 @@ export class Department {
   @Column({ type: 'varchar', length: 255 })
   name: string;
 
+  @Exclude()
   @CreateDateColumn({
     name: 'create_at',
     type: 'timestamptz',
@@ -25,6 +27,7 @@ export class Department {
   })
   createAt: Date;
 
+  @Exclude()
   @UpdateDateColumn({
     name: 'update_at',
     type: 'timestamptz',
